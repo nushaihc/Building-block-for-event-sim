@@ -47,12 +47,12 @@ let string_of_generic_var var =
     type_string ^ value_string;;
 
 (* Source : djb2 hash function *)
-let hash_key_of_generic_var v hash_size = 
+let hash_key_of_generic_var v (* hash_size *) = 
     let s = string_of_generic_var v in
     let hash = ref 0 in
     for i = 0 to (String.length s - 1) do
         hash := 31 * (!hash) + int_of_char(s.[i]);
-        hash := !hash mod hash_size
+(*        hash := !hash mod hash_size *)
     done;
     !hash
 
